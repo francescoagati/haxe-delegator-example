@@ -1,0 +1,6 @@
+-js main.js
+-dce full
+-D analyzer
+-main Main
+-lib tink_core tink_macro tink_lang
+  
