@@ -25,6 +25,18 @@ FooBar2.prototype = {
 		console.log(["sum2","bar",[a,b,c]]);
 		return;
 	}
+	,set_password: function(param) {
+		var tmp;
+		db.settings.password = param;
+		tmp = param;
+		return tmp;
+	}
+	,set_username: function(param) {
+		var tmp;
+		db.settings.username = param;
+		tmp = param;
+		return tmp;
+	}
 };
 var Main = function() { };
 Main.main = function() {
@@ -33,6 +45,8 @@ Main.main = function() {
 	x.set_x("ss");
 	x.sum(1,2);
 	x.sum2(1,2,3);
+	x.set_password("ddd");
+	x.set_username("eee");
 };
 Main.main();
 })(typeof console != "undefined" ? console : {log:function(){}});

@@ -9,6 +9,14 @@ class Bar {
 }
 
 
+typedef Settings = {
+  username:String,
+  password:String,
+  host:String,
+  port:String
+}
+
+
 @:tink class FooBar2 {
 
     inline public static function trace_get(key) {
@@ -24,12 +32,23 @@ class Bar {
       trace([name,id,args]);
     }
 
+    inline static function get_settings(name:String) return untyped db.settings[name];
+    inline static function set_settings(name:String,value) return untyped db.settings[name] = value;
+
     public function new() {}
     @:forward function anyName(foo:Foo, bar:Bar) {
         get: trace_get($name),
         set: trace_set($name, param),
         call: trace_call($name,$id,$args)
     }
+
+
+    @:forward inline function settings_config(settings:Settings) {
+        get: get_settings($name),
+        set: set_settings($name,param),
+        //call: trace_call($name,$id,$args)
+    }
+
 }
 
 
@@ -42,5 +61,8 @@ class Main {
     x.x = "ss";
     x.sum(1,2);
     x.sum2(1,2,3);
+    x.password = 'ddd';
+    x.username = 'eee';
+
   }
 }
