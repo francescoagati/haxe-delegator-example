@@ -2,22 +2,7 @@
 var FooBar2 = function() {
 };
 FooBar2.prototype = {
-	get_x: function() {
-		var tmp;
-		console.log("x");
-		tmp = gina[pina];
-		return tmp;
-	}
-	,set_x: function(param) {
-		var tmp;
-		var tmp1;
-		console.log(["x",param]);
-		tmp1 = gina[pina];
-		tmp1;
-		tmp = param;
-		return tmp;
-	}
-	,sum: function(a,b) {
+	sum: function(a,b) {
 		console.log(["sum","foo",[a,b]]);
 		return;
 	}
@@ -25,28 +10,25 @@ FooBar2.prototype = {
 		console.log(["sum2","bar",[a,b,c]]);
 		return;
 	}
-	,set_password: function(param) {
-		var tmp;
-		db.settings.password = param;
-		tmp = param;
-		return tmp;
-	}
-	,set_username: function(param) {
-		var tmp;
-		db.settings.username = param;
-		tmp = param;
-		return tmp;
-	}
 };
 var Main = function() { };
 Main.main = function() {
 	var x = new FooBar2();
-	x.get_x();
-	x.set_x("ss");
+	var tmp;
+	console.log("x");
+	tmp = gina[pina];
+	tmp;
+	var tmp1;
+	console.log(["x","ss"]);
+	tmp1 = gina[pina];
+	tmp1;
+	"ss";
 	x.sum(1,2);
 	x.sum2(1,2,3);
-	x.set_password("ddd");
-	x.set_username("eee");
+	db.settings.password = "ddd";
+	"ddd";
+	db.settings.username = "eee";
+	"eee";
 };
 Main.main();
 })(typeof console != "undefined" ? console : {log:function(){}});
